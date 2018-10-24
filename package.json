@@ -20,8 +20,13 @@
   },
   "homepage": "https://github.com/AlanWenhao/tour#readme",
   "dependencies": {
+    "history": "^4.7.2",
     "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react-dom": "^16.5.2",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "react-router-redux": "^4.0.8",
+    "redux": "^4.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
@@ -34,7 +39,6 @@
     "less-loader": "^4.1.0",
     "mini-css-extract-plugin": "^0.4.2",
     "node-sass": "^4.9.4",
-    "sass": "^1.14.2",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.20.2",

@@ -1,7 +1,18 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import { Provider } from 'react-redux';
+import { HashRouter as Router } from 'react-router-dom';
+// import { ConnectedRouter } from 'react-router-redux';
+// import '@/assets/sass/main.less';
+import '@/assets/sass/index.scss';
+import store from './store';
+import history from './history';
 import App from './pages/App';
-import './assets/sass/index.scss';
-// import './assets/sass/main.less';
 
-ReactDom.render(<App />, window.root);
+ReactDom.render(
+    <Provider store={store}>
+        <Router>
+            <App />
+        </Router>
+    </Provider>, document.querySelector('#root')
+);

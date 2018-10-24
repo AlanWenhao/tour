@@ -9,40 +9,35 @@ module.exports = {
         filename: 'main.js'
     },
     module: {
-        rules: [{
-            test: /\.js$/,
-            exclude: /node_modules/,
-            include: path.resolve(__dirname, 'src'),
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    presets: ['@babel/preset-env', '@babel/preset-react']
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
                 }
+            },
+            {
+                test: /\.scss$/,
+                use: [
+                    { loader: MiniCssExtractPlugin.loader },
+                    "css-loader", // translates CSS into CommonJS
+                    "sass-loader" // compiles Sass to CSS, using Node Sass by default
+                ]
+            },
+            {
+                test: /\.less$/,
+                use: [
+                    { loader: MiniCssExtractPlugin.loader },
+                    "css-loader", // translates CSS into CommonJS
+                    "less-loader" // compiles Sass to CSS, using Node Sass by default
+                ]
             }
-        }],
-        rules: [{
-            test: /\.scss$/,
-            use: [
-                { loader: MiniCssExtractPlugin.loader },
-                "style-loader", // creates style nodes from JS strings
-                "css-loader", // translates CSS into CommonJS
-                "sass-loader" // compiles Sass to CSS, using Node Sass by default
-            ]
-        }],
-        rules: [{
-            test: /\.less$/,
-            use: [
-                { loader: MiniCssExtractPlugin.loader },
-                "style-loader", // creates style nodes from JS strings
-                "css-loader", // translates CSS into CommonJS
-                "less-loader" // compiles Sass to CSS, using Node Sass by default
-            ]
-        }]
+
+        ]
     },
     plugins: [
         new MiniCssExtractPlugin({
-            // Options similar to the same options in webpackOptions.output
-            // both options are optional
             filename: "[name].css",
             chunkFilename: "[id].css"
         }),
@@ -60,5 +55,6 @@ module.exports = {
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
         port: 3000
-    }
+    },
+    devtool: 'source-map'
 }

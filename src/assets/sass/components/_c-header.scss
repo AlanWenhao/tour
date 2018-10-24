@@ -1,0 +1,14 @@
+.c-header {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 20px 0;
+    background: rgba(0,0,0,.1);
+    color: $white;
+    text-align: center;
+    a {
+        padding: 0 20px;
+        color: $dark_gray;
+    }
+}

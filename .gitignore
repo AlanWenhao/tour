@@ -2,3 +2,4 @@
 /dist
 .DsStore
 .vscode
+package-lock.json

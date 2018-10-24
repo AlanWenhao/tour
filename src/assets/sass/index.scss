@@ -1,4 +1,10 @@
-// @import 'common.scss';
-body {
-    background: glod;
-}
+@charset 'utf-8';
+@import 'variables';
+@import 'common';
+@import 'reset';
+
+/* components */
+@import 'components/c-header';
+
+/* pages */
+@import 'pages/home';
