@@ -1,14 +1,29 @@
 .c-header {
-    position: absolute;
+    position: fixed;
+    top: 0;
     left: 0;
     right: 0;
-    top: 0;
-    padding: 20px 0;
-    background: rgba(0,0,0,.1);
-    color: $white;
-    text-align: center;
-    a {
-        padding: 0 20px;
-        color: $dark_gray;
+    background: rgba(0,0,0,.3);
+    &__main {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        width: $main_width;
+        margin: 0 auto;
+    }
+    &__title {
+        font-size: 20px;
+        font-weight: bold;
+        color: $white;
+        span {
+            font-size: 16px;
+            color: $dark_yellow;
+        }
+    }
+    &__link {
+        margin: 0 10px;
+        padding: 0 10px;
+        color: $white;
     }
 }
