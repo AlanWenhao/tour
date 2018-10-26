@@ -6,6 +6,15 @@ import Category from './Category';
 
 
 class App extends Component {
+    componentDidMount() {
+        setTimeout(() => {
+            this.hidePreLoading();
+        }, 2000);
+    }
+    hidePreLoading () {
+        const preLoading = document.querySelector('#pre-loading');
+        preLoading.classList.add('hidden');
+    }
     render() {
         return (
             <Fragment>
