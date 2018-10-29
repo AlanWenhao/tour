@@ -20,6 +20,7 @@ $ npm run dev
 [react-magic](https://github.com/lit-forest/react-magic)  
 [popmotion](https://github.com/Popmotion/popmotion)  
 [编辑器](https://github.com/margox/braft-editor)
+[scroll animation](https://github.com/dbramwell/react-animate-on-scroll/blob/master/src/scroll-animation.js)  
 
 ## Links
 [关于react动画  --知乎](https://zhuanlan.zhihu.com/p/28536964)  
