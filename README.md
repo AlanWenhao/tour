@@ -19,10 +19,12 @@ $ npm run dev
 [react-motion](https://github.com/chenglou/react-motion)  
 [react-magic](https://github.com/lit-forest/react-magic)  
 [popmotion](https://github.com/Popmotion/popmotion)  
+[编辑器](https://github.com/margox/braft-editor)
 
 ## Links
-![关于react动画  --知乎](https://zhuanlan.zhihu.com/p/28536964)
+[关于react动画  --知乎](https://zhuanlan.zhihu.com/p/28536964)  
+[sample-blog](https://github.com/Weibozzz/next-blog)
 
 ## Site Design
-[mapel](https://preview.themeforest.net/item/maple-an-elegant-responsive-blogging-theme/full_screen_preview/19678617)
+[mapel](https://preview.themeforest.net/item/maple-an-elegant-responsive-blogging-theme/full_screen_preview/19678617)  
 [bg](https://2.bp.blogspot.com/-ylf_86Z3jFU/WRNbiJF0YwI/AAAAAAAAAoE/Z5PRA2EQ_CIRU76i-a27yU5xpsQfhpsXACK4B/s0/pattern.png)
