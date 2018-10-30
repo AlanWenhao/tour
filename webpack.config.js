@@ -32,7 +32,17 @@ module.exports = {
                     "css-loader", // translates CSS into CommonJS
                     "less-loader" // compiles Sass to CSS, using Node Sass by default
                 ]
-            }
+            },
+            {
+                test: /\.(jpg|png|bmp|gif|svg|ttf|woff|woff2|eot)/,
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        // limit: 102400,
+                        outputPath: '/img'
+                    }
+                }]
+            },
 
         ]
     },
@@ -56,5 +66,5 @@ module.exports = {
         compress: true,
         port: 3000
     },
-    devtool: 'source-map'
+    devtool:'eval-source-map'
 }
