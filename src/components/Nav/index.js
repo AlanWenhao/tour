@@ -8,7 +8,7 @@ class Nav extends Component {
                 <div className="c-nav__main">
                     <h1 className="c-nav__title">tour <span>poster</span></h1>
                     <div>
-                        <Link className="c-nav__link" to="/">home</Link>
+                        <Link className="c-nav__link" to="/">首页</Link>
                         <Link className="c-nav__link" to="/category">类目</Link>
                         <Link className="c-nav__link" to="/contact">联系</Link>
                     </div>

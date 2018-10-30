@@ -1,5 +1,58 @@
 .t-home {
-    img {
+    /* slider 部分 */
+    &__slider {
+        position: relative;
+        margin-top: 20px;
+        width: 100%;
+        overflow: hidden;
+        .slick-next {
+            display: none;
+        }
+        .slick-prev {
+            display: none;
+        }
+        &:hover {
+            .t-home__slider-prev, .t-home__slider-next {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+    &__slider-item {
+        outline: none;
+        a {
+            display: block;
+            margin: 10px;
+            outline: none;
+        }
+    }
+    &__slider-img {
         width: 100%;
     }
+    &__slider-prev, &__slider-next {
+        position: absolute;
+        top: 50%;
+        width: 50px;
+        height: 80px;
+        background: transparent;
+        cursor: pointer;
+        background: yellow;
+        transform: translateY(-50%);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity .6s ease-out
+    }
+    &__slider-prev {
+        left: 10px;
+        background: url('../img/labels/slider-left.png') no-repeat center center / cover;
+    }
+    &__slider-next {
+        right: 10px;
+        background: url('../img/labels/slider-right.png') no-repeat center center / cover;
+    }
+    /* slider 部分 */
 }
+
+/* 自定义媒体查询部分 */
+.t-home {}
+/* 自定义媒体查询部分 */

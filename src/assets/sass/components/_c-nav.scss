@@ -1,17 +1,17 @@
 .c-nav {
-    background: rgba(0,0,0,.3);
+    background: $white;
     &__main {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 10px 0;
-        width: $main_width;
+        max-width: $main_width;
         margin: 0 auto;
     }
     &__title {
         font-size: 20px;
-        font-weight: bold;
-        color: $white;
+        font-weight: bolder;
+        color: $dark_gray;
         span {
             font-size: 16px;
             color: $dark_yellow;
@@ -20,6 +20,7 @@
     &__link {
         margin: 0 10px;
         padding: 0 10px;
-        color: $white;
+        font-weight: bold;
+        color: $dark_gray;
     }
 }

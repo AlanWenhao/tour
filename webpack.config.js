@@ -18,6 +18,13 @@ module.exports = {
                 }
             },
             {
+                test: /\.css$/,
+                use: [
+                    { loader: MiniCssExtractPlugin.loader },
+                    "css-loader", // translates CSS into CommonJS
+                ]
+            },
+            {
                 test: /\.scss$/,
                 use: [
                     { loader: MiniCssExtractPlugin.loader },
@@ -39,11 +46,15 @@ module.exports = {
                     loader: 'url-loader',
                     options: {
                         // limit: 102400,
-                        outputPath: '/img'
+                        outputPath: '/img',
+                        // name: 'static/media/[name].[hash:8].[ext]'
                     }
                 }]
             },
-
+            {
+                test: /\.(html|htm)$/,
+                use: 'html-withimg-loader'
+            }
         ]
     },
     plugins: [
