@@ -18,13 +18,14 @@
             }
         }
     }
+    &__slider-box {
+        display: block;
+        margin: 10px;
+        outline: none;
+    }
     &__slider-item {
         outline: none;
-        a {
-            display: block;
-            margin: 10px;
-            outline: none;
-        }
+        position: relative;
     }
     &__slider-img {
         width: 100%;
@@ -50,9 +51,69 @@
         right: 10px;
         background: url('../img/labels/slider-right.png') no-repeat center center / cover;
     }
+    &__slider-info {
+        position: absolute;
+        z-index: 1;
+        left: 70px;
+        right: 70px;
+        bottom: 40px;
+        padding: 30px;
+        background: rgba(0,0,0,1);
+        color: #fff;
+        text-align: center;
+        &:after {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            left: -10px;
+            right: -10px;
+            top: -10px;
+            bottom: -10px;
+            border: 5px solid rgba(0,0,0,1);
+        }
+    }
+    &__slider-category {
+        font-size: 13px;
+        position: relative;
+        &:before {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 4px;
+            border-radius: 3px;
+            background: $main_theme;
+        }
+        &:after {
+            content: '';
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 4px;
+            border-radius: 3px;
+            background: $main_theme;
+        }
+    }
+    &__slider-title {
+        a {
+            color: #fff;
+            transition: color .3s ease-in-out;
+            &:hover {
+                color: $main_theme;
+            }
+        }
+    }
+    &__slider-date {
+        color: #999;
+        font-size: 13px;
+    }
     /* slider 部分 */
 }
 
 /* 自定义媒体查询部分 */
-.t-home {}
+
 /* 自定义媒体查询部分 */

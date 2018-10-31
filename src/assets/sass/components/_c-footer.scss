@@ -1,0 +1,12 @@
+.c-footer {
+    display: flex;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    background: $main_theme;
+    &__test {
+        font-size: 18px;
+        color: #fff;
+        text-align: center;
+    }
+}

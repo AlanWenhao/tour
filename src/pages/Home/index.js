@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Button from '@material-ui/core/Button';
 import Banner from '@/components/Banner';
 import Nav from '@/components/Nav';
+import Footer from '@/components/Footer';
 import Slider from './Slider';
 
 class Home extends Component {
@@ -11,7 +11,7 @@ class Home extends Component {
                 <Banner />
                 <Nav />
                 <Slider></Slider>
-                <Button variant="contained" color="primary">Primary</Button>
+                <Footer />
             </div>
         );
     }

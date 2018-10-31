@@ -13,15 +13,18 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                use: {
+                use: [{
                     loader: 'babel-loader',
-                }
+                }, {
+                    loader: 'eslint-loader'
+                }]
             },
             {
                 test: /\.css$/,
                 use: [
                     { loader: MiniCssExtractPlugin.loader },
                     "css-loader", // translates CSS into CommonJS
+                    "postcss-loader"
                 ]
             },
             {
@@ -29,7 +32,8 @@ module.exports = {
                 use: [
                     { loader: MiniCssExtractPlugin.loader },
                     "css-loader", // translates CSS into CommonJS
-                    "sass-loader" // compiles Sass to CSS, using Node Sass by default
+                    "sass-loader", // compiles Sass to CSS, using Node Sass by default
+                    "postcss-loader"
                 ]
             },
             {
@@ -37,7 +41,8 @@ module.exports = {
                 use: [
                     { loader: MiniCssExtractPlugin.loader },
                     "css-loader", // translates CSS into CommonJS
-                    "less-loader" // compiles Sass to CSS, using Node Sass by default
+                    "less-loader", // compiles Sass to CSS, using Node Sass by default
+                    "postcss-loader"
                 ]
             },
             {

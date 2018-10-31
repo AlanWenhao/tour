@@ -4,6 +4,7 @@ class Banner extends Component {
     constructor(props) {
         super();
     }
+
     render() {
         return (
             <div className="c-banner">
