@@ -44,6 +44,7 @@ module.exports = {
         }],
         'no-alert': 'off',
         'no-console': 'off',
+        "class-methods-use-this": "off",
         "react/jsx-uses-react": "error",
         "react/jsx-uses-vars": "error"
     }
