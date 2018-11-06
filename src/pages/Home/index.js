@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import actions from '@/store/actions/user';
 import Banner from '@/components/Banner';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
@@ -17,4 +19,7 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export default connect(
+    state => state.user,
+    actions,
+)(Home);

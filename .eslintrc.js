@@ -15,6 +15,13 @@ module.exports = {
             "experimentalObjectRestSpread": true
         }
     },
+    "settings": {
+        "import/resolver": {
+            "webpack": {
+                "config": "webpack.config.js"
+            }
+        }
+    },
     "globals": {
         // "$": true,
     },
@@ -42,6 +49,13 @@ module.exports = {
             code: 140,
             ignoreComments: true,
         }],
+        "prefer-destructuring": ["error", {
+            "array": true,
+            "object": false
+        }, {
+            "enforceForRenamedProperties": false
+        }],
+        "space-before-function-paren": ["error", "never"],
         'no-alert': 'off',
         'no-console': 'off',
         "class-methods-use-this": "off",

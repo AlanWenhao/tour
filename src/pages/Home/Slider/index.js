@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
-import Icon from '@material-ui/core/Icon';
 
 class Responsive extends Component {
     constructor(props) {
@@ -41,7 +40,7 @@ class Responsive extends Component {
         };
         return (
             <div className="t-home__slider">
-                <Slider ref={c => (this.slider = c)} {...settings}>
+                <Slider ref={(c) => { this.slider = c; }} {...settings}>
                     {[1, 2, 3, 4, 5, 6].map(item => (
                         <div className="t-home__slider-item" key={item}>
                             <a className="t-home__slider-box" href="/">
