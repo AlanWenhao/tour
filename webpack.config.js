@@ -40,8 +40,20 @@ module.exports = {
                 test: /\.less$/,
                 use: [
                     { loader: MiniCssExtractPlugin.loader },
-                    "css-loader", // translates CSS into CommonJS
-                    "less-loader", // compiles Sass to CSS, using Node Sass by default
+                    {
+                        loader: 'css-loader'
+                    },
+                    {
+                        loader: 'less-loader',
+                        options: {
+                            modifyVars: {
+                                'primary-color': '#1DA57A',
+                                'link-color': '#1DA57A',
+                                'border-radius-base': '2px',
+                            },
+                            javascriptEnabled: true
+                        }
+                    },
                     "postcss-loader"
                 ]
             },

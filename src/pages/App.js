@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import Home from './Home';
 import Category from './Category';
 import Contact from './Contact';
+import Signup from './Signup';
 
 
 class App extends Component {
@@ -13,6 +14,7 @@ class App extends Component {
                 <Route exact path="/" component={Home}/>
                 <Route exact path="/category" component={Category}/>
                 <Route exact path="/contact" component={Contact}/>
+                <Route exact path="/signup" component={Signup}/>
             </Fragment>
         );
     }

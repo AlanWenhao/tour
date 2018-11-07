@@ -21,27 +21,20 @@ module.exports = {
     "plugins": [
         "react"
     ],
-    "rules": {
-        "indent": [
-            "error",
-            4
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ],
-        'max-len': ['error', {
-            code: 140,
-            ignoreComments: true,
-        }],
+    // check if imports actually resolve
+    'settings': {
+        'import/resolver': {
+            'webpack': {
+                'config': 'webpack.config.js'
+            }
+        }
+    },
+    "rules": { "indent": [ "error", 4 ],
+        "linebreak-style": [ "error", "unix" ],
+        "quotes": [ "error", "single" ],
+        'import/no-unresolved': [0, {commonjs: true, amd: true}],
+        "semi": [ "error", "always" ],
+        'max-len': ['error', { code: 140, ignoreComments: true, }],
         'no-alert': 'off',
         'no-console': 'off',
         "class-methods-use-this": "off",
