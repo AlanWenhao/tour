@@ -15,6 +15,13 @@ module.exports = {
             "experimentalObjectRestSpread": true
         }
     },
+    "settings": {
+        "import/resolver": {
+            "webpack": {
+                "config": "webpack.config.js"
+            }
+        }
+    },
     "globals": {
         // "$": true,
     },

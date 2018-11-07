@@ -40,7 +40,7 @@ class Responsive extends Component {
         };
         return (
             <div className="t-home__slider">
-                <Slider ref={(ref) => { this.slider = ref; }} {...settings}>
+                <Slider ref={(c) => { this.slider = c; }} {...settings}>
                     {[1, 2, 3, 4, 5, 6].map(item => (
                         <div className="t-home__slider-item" key={item}>
                             <a className="t-home__slider-box" href="/">
