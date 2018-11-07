@@ -17,7 +17,7 @@ class Notification extends Component {
 
     addNotice(notice) {
         const { notices } = this.state;
-        notice.key = this.getNoticeKey();
+        notice.key = this.getNoticeKey(); // eslint-disable-line
         if (notices.every(item => item.key !== notice.key)) {
             notices.push(notice);
             this.setState({ notices });
@@ -27,25 +27,25 @@ class Notification extends Component {
                 }, notice.duration);
             }
         }
-        return () => { this.removeNotice(notice.key) }
+        return () => { this.removeNotice(notice.key); };
     }
 
     removeNotice(key) {
         const { notices } = this.state;
         this.setState({
-            notices: notices.filter(notice => {
+            notices: notices.filter((notice) => {
                 if (notice.key === key) {
                     if (notice.onClose) setTimeout(notice.onClose, this.transitionTime);
                     return false;
                 }
                 return true;
-            })
-        })
+            }),
+        });
     }
 
     render() {
         const { notices } = this.state;
-        
+
         return (
             <TransitionGroup className="toast-notification">
                 {

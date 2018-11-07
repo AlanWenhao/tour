@@ -11,6 +11,8 @@ class Nav extends Component {
                         <Link className="c-nav__link" to="/">首页</Link>
                         <Link className="c-nav__link" to="/category">类目</Link>
                         <Link className="c-nav__link" to="/contact">联系</Link>
+                        <Link className="c-nav__link" to="/signin">登录</Link>
+                        <Link className="c-nav__link" to="/signup">注册</Link>
                     </div>
                 </div>
             </div>

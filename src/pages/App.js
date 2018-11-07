@@ -4,6 +4,7 @@ import Home from './Home';
 import Category from './Category';
 import Contact from './Contact';
 import Signup from './Signup';
+import Signin from './Signin';
 
 
 class App extends Component {
@@ -15,6 +16,8 @@ class App extends Component {
                 <Route exact path="/category" component={Category}/>
                 <Route exact path="/contact" component={Contact}/>
                 <Route exact path="/signup" component={Signup}/>
+                <Route exact path="/signin" component={Signin}/>
+                {/* <Redirect to="/" component={Home} /> */}
             </Fragment>
         );
     }

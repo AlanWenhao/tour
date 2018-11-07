@@ -5,7 +5,7 @@ const initState = {
     err: null,
 };
 
-export default function(state = initState, action) {
+export default function (state = initState, action) {
     switch (action.type) {
     case types.LOGIN_SUCCESS:
         return { ...state, user: action.user, err: null };

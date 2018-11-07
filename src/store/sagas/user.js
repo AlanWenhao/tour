@@ -10,7 +10,7 @@ function* signin(action) {
     try {
         console.log('发送过来的数据', payload);
         const res = yield call(request, apiConfig.signin, 'post', payload);
-        const jwtToken = res.data.data.jwtToken;
+        const { jwtToken } = res.data.data;
         window.localStorage.setItem('token', jwtToken);
         const user = decode(jwtToken);
         console.log(user);

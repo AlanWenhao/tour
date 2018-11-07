@@ -41,11 +41,11 @@ module.exports = {
         "quotes": [ "error", "single" ],
         'import/no-unresolved': [0, {commonjs: true, amd: true}],
         "semi": [ "error", "always" ],
-        'max-len': ['error', { code: 140, ignoreComments: true, }],
+        'max-len': ['error', { code: 150, ignoreComments: true, }],
         'no-alert': 'off',
         'no-console': 'off',
         "class-methods-use-this": "off",
         "react/jsx-uses-react": "error",
         "react/jsx-uses-vars": "error"
-    }
+    },
 };

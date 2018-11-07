@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { PropTypes } from 'prop-types';
 
 class Notice extends Component {
     render() {
@@ -7,7 +8,7 @@ class Notice extends Component {
             success: 'icon-check-circle-fill',
             warning: 'icon-warning-circle-fill',
             error: 'icon-close-circle-fill',
-            loading: 'icon-loading'
+            loading: 'icon-loading',
         };
         const { type, content } = this.props;
         return (
@@ -20,5 +21,10 @@ class Notice extends Component {
         );
     }
 }
+
+Notice.PropTypes = {
+    type: PropTypes.string,
+    content: PropTypes.string,
+};
 
 export default Notice;

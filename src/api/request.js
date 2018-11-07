@@ -1,8 +1,6 @@
 import axios from 'axios';
 
-const instance = axios.create({
-    baseURL: '//localhost:4000',
-});
+const instance = axios.create({ baseURL: '//localhost:4000' });
 
 // instance.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 

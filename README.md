@@ -1,5 +1,8 @@
 # tour
 
+## backend repo
+[tour-backend](https://github.com/AlanWenhao/tour-backend)
+
 ## how to start
 
 ```bash

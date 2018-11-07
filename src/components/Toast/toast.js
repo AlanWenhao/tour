@@ -16,8 +16,8 @@ function createNotification() {
         destory() {
             ReactDom.unmountComponentAtNode(div);
             document.body.removeChild(div);
-        }
-    }
+        },
+    };
 }
 
 // 定义一个变量用于保存 createNotification 返回的对象
@@ -25,8 +25,10 @@ let notification;
 
 const notice = (type, content, duration = 2000, onClose) => {
     if (!notification) notification = createNotification();
-    return notification.addNotice({ type, content, duration, onClose });
-}
+    return notification.addNotice({
+        type, content, duration, onClose,
+    });
+};
 
 export default {
     info(content, duration, onClose) {
@@ -43,5 +45,5 @@ export default {
     },
     loading(content, duration, onClose) {
         return notice('loading', content, duration, onClose);
-    }
-}
+    },
+};
