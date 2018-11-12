@@ -15,24 +15,36 @@ function* signin(action) {
         const user = decode(jwtToken);
         console.log(user);
         // put 参数是一个 action ，put 用来向仓库派发一个 action ，相当于 store.dispatch(action)
-        yield put({ type: types.LOGIN_SUCCESS, user });
+        yield put({ type: types.SIGNIN_SUCCESS, user });
         yield put(push('/'));
     } catch (err) {
         console.log(err);
     }
 }
 
+function* signup(action) {
+    const { payload } = action;
+    console.log('发送的数据是', payload);
+    try {
+        const res = yield call(request, apiConfig.signup, 'post', payload);
+    } catch (err) {
+        console.log('注册出错', err);
+    }
+    console.log(res);
+}
+
 function* loadUser() {
     const jwtToken = window.localStorage.getItem('token');
     if (jwtToken) {
         const user = decode(jwtToken);
-        yield put({ type: types.LOGIN_SUCCESS, user });
+        yield put({ type: types.SIGNIN_SUCCESS, user });
     }
 }
 
 export function* signinFlow() {
     // 当监听到 LOGIN 的动作，会交给 login 函数处理
-    yield takeEvery(types.LOGIN, signin);
+    yield takeEvery(types.SIGNIN, signin);
+    yield takeEvery(types.SIGNUP, signup);
     // yield takeEvery(types.LOGOUT, logout);
 }
 

@@ -1,9 +1,16 @@
+// 注册
+export const SIGNUP = 'SIGNUP';
+// 注册成功
+export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
+// 注册失败
+export const SIGNUP_ERROR = 'SIGNUP_ERROR';
+
 // 登录
-export const LOGIN = 'LOGIN'; // side function
+export const SIGNIN = 'SIGNIN'; // side function
 // 登录成功
-export const LOGIN_SUCCESS = 'LOGIN_SECCESS'; // plain
+export const SIGNIN_SUCCESS = 'SIGNIN_SECCESS'; // plain
 // 登录失败
-export const LOGIN_ERROR = 'LOGIN_ERROR'; // plain
+export const SIGNIN_ERROR = 'SIGNIN_ERROR'; // plain
 // 解析用户
 export const LOAD_USER = 'LOAD_USER'; // plain
 // 退出登录

@@ -1,8 +1,11 @@
 import * as types from '../action-types';
 
 export default {
-    login(payload) {
-        return { type: types.LOGIN, payload };
+    signup(payload) {
+        return { type: types.SIGNUP, payload };
+    },
+    signin(payload) {
+        return { type: types.SIGNIN, payload };
     },
     loadUser() {
         return { type: types.LOAD_USER };

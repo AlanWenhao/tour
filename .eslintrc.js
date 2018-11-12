@@ -46,6 +46,7 @@ module.exports = {
         'no-console': 'off',
         "class-methods-use-this": "off",
         "react/jsx-uses-react": "error",
-        "react/jsx-uses-vars": "error"
+        "react/jsx-uses-vars": "error",
+        "react/prop-types": [1, { ignore: ['signup'] }]
     },
 };
