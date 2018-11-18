@@ -27,10 +27,10 @@ function* signup(action) {
     console.log('发送的数据是', payload);
     try {
         const res = yield call(request, apiConfig.signup, 'post', payload);
+        console.log(res);
     } catch (err) {
         console.log('注册出错', err);
     }
-    console.log(res);
 }
 
 function* loadUser() {
