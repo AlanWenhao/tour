@@ -1,5 +1,6 @@
 import { takeEvery, put, call } from 'redux-saga/effects';
 import { push } from 'react-router-redux';
+import Toast from '@/components/toast';
 import request from '@/api/request';
 import apiConfig from '@/api/apiConfig';
 import { decode } from '@/utils/jwt';
@@ -10,13 +11,15 @@ function* signin(action) {
     try {
         console.log('发送过来的数据', payload);
         const res = yield call(request, apiConfig.signin, 'post', payload);
-        const { jwtToken } = res.data.data;
-        window.localStorage.setItem('token', jwtToken);
-        const user = decode(jwtToken);
+        console.log(res);
+        const { token } = res.data.data;
+        window.localStorage.setItem('token', token);
+        const user = decode(token);
         console.log(user);
         // put 参数是一个 action ，put 用来向仓库派发一个 action ，相当于 store.dispatch(action)
         yield put({ type: types.SIGNIN_SUCCESS, user });
-        yield put(push('/'));
+        Toast.success('登录成功');
+        // yield put(push('/'));
     } catch (err) {
         console.log(err);
     }
@@ -27,7 +30,12 @@ function* signup(action) {
     console.log('发送的数据是', payload);
     try {
         const res = yield call(request, apiConfig.signup, 'post', payload);
-        console.log(res);
+        if (res.data.code === 200) {
+            Toast.success('注册成功，请登录');
+            yield put(push('/signin'));
+        } else {
+            Toast.info(res.data.message);
+        }
     } catch (err) {
         console.log('注册出错', err);
     }

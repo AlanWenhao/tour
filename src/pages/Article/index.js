@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-class ArticlePad extends Component {
+class Article extends Component {
     render() {
         return (
-            <div>pad</div>
+            <div></div>
         );
     }
 }
 
-export default ArticlePad;
+export default Article;

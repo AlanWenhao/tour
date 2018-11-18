@@ -15,13 +15,6 @@ module.exports = {
             "experimentalObjectRestSpread": true
         }
     },
-    "settings": {
-        "import/resolver": {
-            "webpack": {
-                "config": "webpack.config.js"
-            }
-        }
-    },
     "globals": {
         // "$": true,
     },
@@ -34,7 +27,12 @@ module.exports = {
             'webpack': {
                 'config': 'webpack.config.js'
             }
-        }
+        },
+        "react": {
+            "createClass": "createReactClass", // Regex for Component Factory to use, default to "createReactClass"
+            "pragma": "React",  // Pragma to use, default to "React"
+            "flowVersion": "0.53" // Flow version
+        },
     },
     "rules": { "indent": [ "error", 4 ],
         "linebreak-style": [ "error", "unix" ],

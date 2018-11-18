@@ -22,7 +22,7 @@ class Notice extends Component {
     }
 }
 
-Notice.PropTypes = {
+Notice.propTypes = {
     type: PropTypes.string,
     content: PropTypes.string,
 };

@@ -3,6 +3,8 @@ import {
     Form, Icon, Input, Button,
 } from 'antd';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import actions from '@/store/actions/user';
 import PropTypes from 'prop-types';
 
 const FormItem = Form.Item;
@@ -13,6 +15,8 @@ class NormalLoginForm extends Component {
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
+                console.log('发送的数据是：', values);
+                this.props.signin(values);
             }
         });
     }
@@ -25,7 +29,7 @@ class NormalLoginForm extends Component {
                     <div className="t-sign__content">
                         <Form onSubmit={this.handleSubmit} className="login-form">
                             <FormItem>
-                                {getFieldDecorator('userName', { rules: [{ required: true, message: '请输入用户名' }] })(
+                                {getFieldDecorator('username', { rules: [{ required: true, message: '请输入用户名' }] })(
                                     <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />,
                                 )}
                             </FormItem>
@@ -47,7 +51,7 @@ class NormalLoginForm extends Component {
                             </div>
                         </Form>
                     </div>
-                </div>s
+                </div>
             </div>
         );
     }
@@ -55,8 +59,12 @@ class NormalLoginForm extends Component {
 
 NormalLoginForm.propTypes = {
     form: PropTypes.object,
+    signin: PropTypes.func,
 };
 
 const WrappedNormalLoginForm = Form.create()(NormalLoginForm);
 
-export default WrappedNormalLoginForm;
+export default connect(
+    state => state.user,
+    actions,
+)(WrappedNormalLoginForm);
