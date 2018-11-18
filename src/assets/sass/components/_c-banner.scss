@@ -1,5 +1,17 @@
 .c-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 400px;
     background: url('../img/home-bg.jpg')no-repeat center center;
     background-size: cover;
+    &__main {
+        text-align: center;
+    }
+    &__main-logo {
+        width: 450px;
+        img {
+            width: 100%;
+        }
+    }
 }

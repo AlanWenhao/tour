@@ -62,9 +62,9 @@ module.exports = {
                 use: [{
                     loader: 'url-loader',
                     options: {
-                        // limit: 102400,
-                        outputPath: '/img',
-                        // name: 'static/media/[name].[hash:8].[ext]'
+                        limit: 10240,
+                        // outputPath: '',
+                        // name: 'dist/img/[name].[hash:8].[ext]'
                     }
                 }]
             },

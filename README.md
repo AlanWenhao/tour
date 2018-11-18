@@ -36,5 +36,6 @@ $ npm run dev
 ## Remind
 - to set `historyApiFallback` is a way to avoid `Cannot GET/**` after refresh browser
 - user `withRouter` because when you have an export connect, you need to tell that that component will be using the router.
+- use src img in jsx, you should import img as a module then webpack url loader can rerolve it.Do not use relative path because there is no `html-withimg-loader` in jsx. Jsx is a module rather than `html` file
 
 

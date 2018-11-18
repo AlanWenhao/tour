@@ -3,9 +3,14 @@ import { Link } from 'react-router-dom';
 
 class ArticlePad extends Component {
     render() {
+        const link = 'https://via.placeholder.com/610X300';
+        const backendStyle = {
+            background: `url(${link}) no-repeat center center`,
+            backgroundSize: 'cover',
+        };
         return (
             <div className="c-pad">
-                <div className="c-pad__pic"></div>
+                <div className="c-pad__pic" style={{ ...backendStyle }}></div>
                 <section className="c-pad__info">
                     <span className="c-pad__category">文章类别</span>
                     <h3 className="c-pad__title"><span href="/">ARTICLE TITLE</span></h3>

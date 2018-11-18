@@ -4,7 +4,6 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 10px 0;
         max-width: $main_width;
         margin: 0 auto;
     }
@@ -18,9 +17,47 @@
         }
     }
     &__link {
+        display: inline-block;
+        position: relative;
         margin: 0 10px;
-        padding: 0 10px;
+        padding: 15px;
         font-weight: bold;
         color: $dark_gray;
+        cursor: pointer;
+        .c-nav__fake-link {
+            color: $dark_gray;
+        }
+        &:hover .c-nav__link-menu {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+    &__link-menu {
+        visibility: hidden;
+        width: 80px;
+        position: absolute;
+        z-index: $top_index;
+        left: 50%;
+        bottom: 0;
+        transform: translate(-50%, 100%);
+        opacity: 0;
+        text-align: center;
+        background: $white;
+        box-shadow: 0 0 15px 0 rgba(0,0,0,.15);
+        transition: all ease-in-out .3s;
+    }
+    &__link-menu-item {
+        display: block;
+        padding: 4px 0;
+        cursor: pointer;
+        color: $dark_gray;
+        & + & {
+            border-bottom: 1px solid $light_gray;
+        }
+        transition: color .3s ease-in-out;
+        &:hover {
+            color: #40a9ff;
+        }
+        
     }
 }

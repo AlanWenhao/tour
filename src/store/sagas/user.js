@@ -18,8 +18,8 @@ function* signin(action) {
         console.log(user);
         // put 参数是一个 action ，put 用来向仓库派发一个 action ，相当于 store.dispatch(action)
         yield put({ type: types.SIGNIN_SUCCESS, user });
-        Toast.success('登录成功');
-        // yield put(push('/'));
+        Toast.success(`欢迎回来 ${user.username}`);
+        yield put(push('/'));
     } catch (err) {
         console.log(err);
     }
@@ -49,11 +49,18 @@ function* loadUser() {
     }
 }
 
+function* logout() {
+    window.localStorage.removeItem('token');
+    yield put({ type: types.LOGOUT_SUCCESS });
+    Toast.success('退出成功');
+    // yield put(push('/'));
+}
+
 export function* signinFlow() {
     // 当监听到 LOGIN 的动作，会交给 login 函数处理
     yield takeEvery(types.SIGNIN, signin);
     yield takeEvery(types.SIGNUP, signup);
-    // yield takeEvery(types.LOGOUT, logout);
+    yield takeEvery(types.LOGOUT, logout);
 }
 
 export function* watchLoadUser() {
