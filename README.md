@@ -35,5 +35,6 @@ $ npm run dev
 
 ## Remind
 - to set `historyApiFallback` is a way to avoid `Cannot GET/**` after refresh browser
+- user `withRouter` because when you have an export connect, you need to tell that that component will be using the router.
 
 
