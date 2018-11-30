@@ -5,6 +5,8 @@
 
 ## how to start
 
+记得安装[redux dev-tool](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?utm_source=chrome-ntp-icon)，不然会报错。。。
+
 ```bash
 # install the dependences
 $ npm install
