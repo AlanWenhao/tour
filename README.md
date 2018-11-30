@@ -1,11 +1,11 @@
 # tour
 
 ## backend repo
-[tour-backend](https://github.com/AlanWenhao/tour-backend)
+a node.js project [tour-backend](https://github.com/AlanWenhao/tour-backend)
 
 ## how to start
 
-记得安装[redux dev-tool](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?utm_source=chrome-ntp-icon)，不然会报错。。。
+make sure that you have installed [redux dev-tool](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?utm_source=chrome-ntp-icon). Or the application would throw an error.
 
 ```bash
 # install the dependences
