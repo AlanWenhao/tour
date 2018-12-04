@@ -20,7 +20,7 @@ class ArticlePad extends Component {
                     这里是一些文字，介绍的是文章的摘要，如果没有的话，则取文章的第一自然段
                 </section>
                 <div className="c-pad__reading">
-                    <Link to="/">read more</Link>
+                    <Link to="/article">read more</Link>
                 </div>
             </div>
         );
