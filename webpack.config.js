@@ -15,8 +15,6 @@ module.exports = {
                 exclude: /node_modules/,
                 use: [{
                     loader: 'babel-loader',
-                }, {
-                    loader: 'eslint-loader'
                 }]
             },
             {
@@ -93,7 +91,8 @@ module.exports = {
         contentBase: path.join(__dirname, 'dist'),
         historyApiFallback: true,
         compress: true,
-        port: 3001
+        port: 3001,
+        stats: { children: false }
     },
     devtool: 'eval-source-map'
 }
