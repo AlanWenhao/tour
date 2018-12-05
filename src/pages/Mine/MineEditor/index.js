@@ -6,11 +6,10 @@ import 'braft-editor/dist/index.css'
 class MineEditor extends Component {
     constructor(props) {
         super();
-    }
-
-    state = {
-        // 创建一个空的editorState作为初始值
-        editorState: BraftEditor.createEditorState(null)
+        this.state = {
+            // 创建一个空的editorState作为初始值
+            editorState: BraftEditor.createEditorState(null)
+        }
     }
 
     async componentDidMount () {
