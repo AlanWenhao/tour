@@ -15,4 +15,23 @@
         font-size: 16px;
         text-align: center;
     }
+    &__left, &__right {
+        padding: 10px;
+        background: $white;
+    }
+    &__tabs {
+        text-align: center;
+        background: rgba(255,255,255,.6);
+        li {
+            display: inline-block;
+        }
+    }
+    &__tab {
+        display: inline-block;
+        padding: 10px 16px;
+        color: #333;
+        &.active {
+            color: #40a9ff;
+        }
+    }
 }

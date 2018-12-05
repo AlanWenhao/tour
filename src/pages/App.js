@@ -26,7 +26,7 @@ class App extends Component {
                 <Route exact path="/contact" component={Contact}/>
                 <Route exact path="/signup" component={Signup}/>
                 <Route exact path="/signin" component={Signin}/>
-                <Route exact path="/mine" component={Mine}/>
+                <Route path="/mine" component={Mine}/>
                 {/* <Redirect to="/" component={Home} /> */}
             </Fragment>
         );
