@@ -6,7 +6,8 @@ module.exports = {
     entry: path.resolve(__dirname, 'src/index.js'),
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'main.js'
+        filename: 'main.js',
+        publicPath: '/' // https://github.com/react-boilerplate/react-boilerplate/issues/113
     },
     module: {
         rules: [

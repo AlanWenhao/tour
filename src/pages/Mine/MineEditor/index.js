@@ -1,56 +1,105 @@
-import React, { Component } from 'react';
-import { Input } from 'antd';
-import BraftEditor from 'braft-editor';
-// 引入编辑器样式
-import 'braft-editor/dist/index.css';
+import React from 'react'
+import { connect } from 'react-redux';
+import { Form, Input, Button } from 'antd'
+import BraftEditor from 'braft-editor'
+import 'braft-editor/dist/index.css'
+import actions from '@/store/actions/article';
 
-class MineEditor extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            // 创建一个空的editorState作为初始值
-            editorState: BraftEditor.createEditorState(null),
-        };
+const FormItem = Form.Item;
+
+class MineEditor extends React.Component {
+    componentDidMount() {
+        // 异步设置编辑器内容
+        setTimeout(() => {
+            this.props.form.setFieldsValue({
+                content: BraftEditor.createEditorState('<p>Hello <b>World!</b></p>')
+            })
+        }, 1000)
     }
 
-    async componentDidMount() {
-        // 假设此处从服务端获取html格式的编辑器内容
-        // const htmlContent = await fetchEditorContent()
-        // 使用BraftEditor.createEditorState将html字符串转换为编辑器需要的editorStat
-        // this.setState({
-        //     editorState: BraftEditor.createEditorState(htmlContent)
-        // })
-    }
-
-    handleEditorChange = (editorState) => {
-        this.setState({ editorState });
-    }
-
-    submitContent = async () => {
-        const title = this.username.value;
-        // 在编辑器获得焦点时按下ctrl+s会执行此方法
-        // 编辑器内容提交到服务端之前，可直接调用editorState.toHTML()来获取HTML格式的内容
-        const htmlContent = this.state.editorState.toHTML();
-        console.log(htmlContent);
-        // const result = await saveEditorContent(htmlContent)
-        const data = {
-            title,
-        };
-        console.log(data);
+    handleSubmit = (event) => {
+        event.preventDefault()
+        this.props.form.validateFields((error, values) => {
+            if (!error) {
+                const submitData = {
+                    title: values.title,
+                    categoryId: values.cate,
+                    summary: values.summary,
+                    content: values.content.toHTML() // or values.content.toRAW()
+                }
+                console.log(submitData)
+            }
+        })
     }
 
     render() {
-        const { editorState } = this.state;
-        const { TextArea } = Input;
+        const { getFieldDecorator } = this.props.form
+        // const controls = ['bold', 'italic', 'underline', 'text-color', 'separator', 'link', 'separator', 'media']
         return (
-            <div className="my-component">
-                <Input placeholder="文章题目" ref={ input => this.title = input } />
-                <TextArea rows={4} placeholder="文章简介" />
-                <BraftEditor value={editorState} onChange={this.handleEditorChange} onSave={this.submitContent} />
-                <button onClick={this.submitContent}>save</button>
+            <div className="demo-container">
+                <Form onSubmit={this.handleSubmit}>
+                    <FormItem label="文章标题">
+                        {getFieldDecorator('title', {
+                            rules: [{
+                                required: true,
+                                message: '请输入标题',
+                            }],
+                        })(
+                            <Input size="large" placeholder="请输入标题" />
+                        )}
+                    </FormItem>
+                    <FormItem label="文章类目ID">
+                        {getFieldDecorator('cate', {
+                            rules: [{
+                                required: true,
+                                message: '请输入类别',
+                            }],
+                        })(
+                            <Input size="large" placeholder="请输入类别" />
+                        )}
+                    </FormItem>
+                    <FormItem label="文章摘要">
+                        {getFieldDecorator('summary', {
+                            rules: [{
+                                required: true,
+                                message: '请输入摘要',
+                            }],
+                        })(
+                            <Input size="large" placeholder="请输入摘要" />
+                        )}
+                    </FormItem>
+                    <FormItem label="文章正文">
+                        {getFieldDecorator('content', {
+                            validateTrigger: 'onBlur',
+                            rules: [{
+                                required: true,
+                                validator: (_, value, callback) => {
+                                    if (value.isEmpty()) {
+                                        callback('请输入正文内容')
+                                    } else {
+                                        callback()
+                                    }
+                                }
+                            }],
+                        })(
+                            <BraftEditor
+                                className="my-editor"
+                                placeholder="请输入正文内容"
+                            />
+                        )}
+                    </FormItem>
+                    <FormItem>
+                        <Button size="large" type="primary" htmlType="submit">提交</Button>
+                    </FormItem>
+                </Form>
             </div>
-        );
+        )
     }
 }
 
-export default MineEditor;
+const formEditor = Form.create()(MineEditor);
+
+export default connect(
+    state => state.user,
+    actions,
+)(formEditor)
