@@ -20,9 +20,18 @@ export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'; // plain
 
 // 添加文章
 export const ADD_ARTICLE = 'ADD_ARTICLE'; // side function
-
+// 添加文章成功
 export const ADD_ARTICLE_SUCCESS = 'ADD_ARTICLE_SUCCESS'; // plain
-
+// 添加文章失败
 export const ADD_ARTICLE_FAILED = 'ADD_ARTICLE_FAILED'; // plain
 
-export const TEST = 'TEST';
+// 添加分类
+export const ADD_CATEGORY = 'ADD_CATEGORY';
+// 查询分类
+export const QUERY_CATEGORY = 'QUERY_CATEGORY';
+// 添加分类成功
+export const QUERY_CATEGORY_SUCCESS = 'QUERY_CATEGORY_SUCCESS';
+// 修改分类
+export const EDIT_CATEGORY = 'EDIT_CATEGORY';
+// 删除分类
+export const DELETE_CATEGORY = 'DELETE_CATEGORY';

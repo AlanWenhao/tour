@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { Row, Col } from 'antd';
 
 import MineArticles from './MineArticles';
@@ -10,14 +11,14 @@ import MineEditor from './MineEditor';
 
 class Mine extends Component {
     render() {
-        // const { match } = this.props;
+        const { user } = this.props;
         return (
             <div className="t-mine">
                 <div className="t-mine__header">
                     <div className="t-mine__avatar">
-                        <img src="" alt=""/>
+                        <img src={user.avatar} alt=""/>
                     </div>
-                    <h4 className="t-mine__username">Alan</h4>
+                    <h4 className="t-mine__username">{user.username}</h4>
                 </div>
                 <ul className="t-mine__tabs">
                     <li><Link className="t-mine__tab" to="/mine">我的文章</Link></li>
@@ -49,4 +50,6 @@ class Mine extends Component {
     }
 }
 
-export default Mine;
+export default connect(
+    state => state.user,
+)(Mine);
