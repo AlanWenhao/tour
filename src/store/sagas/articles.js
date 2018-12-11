@@ -9,7 +9,7 @@ function* addArticle(action) {
     const { payload } = action;
     try {
         console.log('即将发送的数据', payload);
-        const res = yield request(apiConfig.addArticle, 'post', payload);
+        yield request(apiConfig.addArticle, 'post', payload);
         Toast.success('文章添加成功');
         yield put(push('/mine'));
     } catch (err) {
@@ -17,6 +17,16 @@ function* addArticle(action) {
     }
 }
 
-export function* articleFlow() {
+function* queryAllArticle(action) {
+    const { payload } = action;
+    try {
+        yield request(apiConfig.queryAllArticle, 'post', payload);
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+export default function* articleFlow() {
     yield takeEvery(types.ADD_ARTICLE, addArticle);
+    yield takeEvery(types.QUERY_ALL_ARTICLE, queryAllArticle);
 }
