@@ -23,7 +23,6 @@ class MineEditor extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            categoryList: [],
             editorState: BraftEditor.createEditorState(null),
         };
         this.props.queryCategory();
@@ -76,6 +75,8 @@ class MineEditor extends React.Component {
     }
 
     render() {
+        const { categoryList } = this.props;
+        console.log('类别列表', categoryList);
         const controls = ['bold', 'italic', 'underline', 'text-color', 'separator', 'link', 'separator']
         const extendControls = [
             {
@@ -101,11 +102,10 @@ class MineEditor extends React.Component {
                 <Button type="primary" onClick={this.goBack}><Icon type="left" />Go back</Button>
                 <Input placeholder="题目" />
                 <TextArea rows={4} placeholder="摘要" />
-                <Select defaultValue="lucy" onChange={this.changeSelection}>
-                    <Option value="jack">Jack</Option>
-                    <Option value="lucy">Lucy</Option>
-                    <Option value="disabled">Disabled</Option>
-                    <Option value="Yiminghe">yiminghe</Option>
+                <Select onChange={this.changeSelection}>
+                    {categoryList.map(item => (
+                        <Option value={item.id} key={item.id}>{item.name}</Option>
+                    ))}
                 </Select>
                 <div className="editor-wrapper">
                     <BraftEditor
@@ -123,6 +123,6 @@ class MineEditor extends React.Component {
 const formEditor = Form.create()(MineEditor);
 
 export default connect(
-    state => state.user,
+    state => state.category,
     actions,
 )(formEditor);
