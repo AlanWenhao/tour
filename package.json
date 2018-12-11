@@ -34,6 +34,7 @@
     "antd": "^3.10.3",
     "axios": "^0.18.0",
     "braft-editor": "^2.1.34",
+    "braft-finder": "0.0.16",
     "braft-utils": "^3.0.8",
     "connected-react-router": "^5.0.1",
     "history": "^4.7.2",

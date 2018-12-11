@@ -9,4 +9,7 @@ export default {
     queryCategory: '/queryCategory',
     editCategory: '/editCategory',
     deleteCategory: '/deleteCategory',
+
+    // 文件上传
+    upload: '/upload',
 };
