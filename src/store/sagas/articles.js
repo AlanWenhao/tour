@@ -20,7 +20,8 @@ function* addArticle(action) {
 function* queryAllArticle(action) {
     const { payload } = action;
     try {
-        yield request(apiConfig.queryAllArticle, 'post', payload);
+        const res = yield request(apiConfig.queryAllArticle, 'post', payload);
+        yield put({ type: types.QUERY_ALL_ARTICLE_SECCESS, data: res.data.data.list });
     } catch (err) {
         console.log(err);
     }

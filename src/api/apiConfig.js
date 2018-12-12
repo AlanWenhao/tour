@@ -4,6 +4,7 @@ export default {
 
     // 文章
     addArticle: '/addArticle',
+    queryAllArticle: '/queryArticles',
     // 类目
     addCategory: '/addCategory',
     queryCategory: '/queryCategory',

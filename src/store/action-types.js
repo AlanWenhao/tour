@@ -26,6 +26,8 @@ export const ADD_ARTICLE_SUCCESS = 'ADD_ARTICLE_SUCCESS'; // plain
 export const ADD_ARTICLE_FAILED = 'ADD_ARTICLE_FAILED'; // plain
 // 查询所有文章
 export const QUERY_ALL_ARTICLE = 'QUERY_ALL_ARTICLE';
+// 查询所有文章成功
+export const QUERY_ALL_ARTICLE_SECCESS = 'QUERY_ALL_ARTICLE_SECCESS';
 
 // 添加分类
 export const ADD_CATEGORY = 'ADD_CATEGORY';
