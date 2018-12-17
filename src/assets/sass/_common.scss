@@ -3,6 +3,10 @@ body {
     background: url('../img/body-bg.png');
 }
 
+.full {
+    min-height: 100vh;
+}
+
 /* Layout */
 .container {
     max-width: $main_width;

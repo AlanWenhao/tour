@@ -20,7 +20,7 @@
         text-align: center;
     }
     &__left, &__right {
-        padding: 10px;
+        padding: 20px;
         background: $white;
     }
     &__tabs {
@@ -37,5 +37,17 @@
         &.active {
             color: #40a9ff;
         }
+    }
+
+    &__section {
+        margin: 20px 0;
+        &:first-of-type {
+            margin-top: 0;
+        }
+    }
+
+    /* 新建文章部分 */
+    &__editor-title {
+        padding-left: 4px;
     }
 }

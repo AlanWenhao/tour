@@ -2,9 +2,10 @@
     /* slider 部分 */
     &__slider {
         position: relative;
-        margin-top: 20px;
+        padding-top: 20px;
         width: 100%;
         overflow: hidden;
+        // background: $white;
         .slick-next {
             display: none;
         }

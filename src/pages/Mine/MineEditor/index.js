@@ -129,23 +129,39 @@ class MineEditor extends React.Component {
 
         return (
             <div>
-                <Button type="primary" onClick={this.goBack}><Icon type="left" />Go back</Button>
-                <Input placeholder="题目" onChange={this.changeTiele} />
-                <TextArea rows={4} placeholder="摘要" onChange={this.changeSummary} />
-                <Select style={{ width: 120 }} onChange={this.changeSelection} placeholder="请选择类别">
-                    {categoryList.map(item => (
-                        <Option value={item.id} key={item.id}>{item.name}</Option>
-                    ))}
-                </Select>
-                <div className="editor-wrapper">
-                    <BraftEditor
-                        value={this.state.editorState}
-                        onChange={this.changeEditor}
-                        controls={controls}
-                        extendControls={extendControls}
-                    />
+                <div className="t-mine__section">
+                    <Button type="default" onClick={this.goBack}><Icon type="left" />返回</Button>
                 </div>
-                <Button onClick={this.handleSubmit} />
+                <div className="t-mine__section">
+                    <p className="t-mine__editor-title">题目：</p>
+                    <Input placeholder="题目" onChange={this.changeTiele} />
+                </div>
+                <div className="t-mine__section">
+                    <p className="t-mine__editor-title">摘要：</p>
+                    <TextArea rows={4} placeholder="摘要" onChange={this.changeSummary} />
+                </div>
+                <div className="t-mine__section">
+                    <p className="t-mine__editor-title">类目：</p>
+                    <Select style={{ width: 120 }} onChange={this.changeSelection} placeholder="请选择类别">
+                        {categoryList.map(item => (
+                            <Option value={item.id} key={item.id}>{item.name}</Option>
+                        ))}
+                    </Select>
+                </div>
+                <div className="t-mine__section">
+                    <p className="t-mine__editor-title">正文：</p>
+                    <div className="editor-wrapper">
+                        <BraftEditor
+                            value={this.state.editorState}
+                            onChange={this.changeEditor}
+                            controls={controls}
+                            extendControls={extendControls}
+                        />
+                    </div>
+                </div>
+                <div className="t-mine__section">
+                    <Button onClick={this.handleSubmit} />
+                </div>
             </div>
         );
     }

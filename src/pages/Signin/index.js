@@ -24,7 +24,8 @@ class NormalLoginForm extends Component {
     render() {
         const { getFieldDecorator } = this.props.form;
         return (
-            <div className="t-sign">
+            <div className="t-sign full">
+                <div className="t-sign__bg"></div>
                 <div className="t-sign__container">
                     <div className="t-sign__content">
                         <Form onSubmit={this.handleSubmit} className="login-form">
@@ -46,7 +47,7 @@ class NormalLoginForm extends Component {
                                 </Button>
                             </div>
                             <div style={{ marginTop: '10px', textAlign: 'center' }}>
-                                <span>还没有账号？</span>
+                                <span className="t-sign__question">还没有账号？</span>
                                 <Link to="/signup">立即注册</Link>
                             </div>
                         </Form>

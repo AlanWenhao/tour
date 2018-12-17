@@ -11,6 +11,10 @@
         font-size: 20px;
         font-weight: bolder;
         color: $dark_gray;
+        strong {
+            color: $black;
+            font-weight: bold;
+        }
         span {
             font-size: 16px;
             color: $dark_yellow;

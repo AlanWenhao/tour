@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Row, Col } from 'antd';
+import PropTypes from 'prop-types';
 
 import MineArticles from './MineArticles';
 import MineInfo from './MineInfo';
 import MineCate from './MineCate';
 import MineUser from './MineUser';
 import MineEditor from './MineEditor';
+import Aside from '@/components/Aside';
 
 class Mine extends Component {
     render() {
@@ -40,7 +42,9 @@ class Mine extends Component {
                             </div>
                         </Col>
                         <Col span={8}>
-                            <div className="t-mine__right">这里是右边</div>
+                            <div className="t-mine__right">
+                                <Aside></Aside>
+                            </div>
                         </Col>
                     </Row>
                 </div>
@@ -49,6 +53,10 @@ class Mine extends Component {
         );
     }
 }
+
+Mine.propTypes = {
+    user: PropTypes.object,
+};
 
 export default connect(
     state => state.user,
