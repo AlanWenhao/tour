@@ -6,6 +6,7 @@ import Banner from '@/components/Banner';
 import Nav from '@/components/Nav';
 import ArticlePad from '@/components/ArticlePad';
 import Footer from '@/components/Footer';
+import Aside from '@/components/Aside';
 import Slider from './Slider';
 import articleAction from '@/store/actions/article';
 
@@ -37,7 +38,9 @@ class Home extends Component {
                                 <ArticlePad article={article} key={article.id} />
                             ))}
                         </Col>
-                        <Col span={8}>col-4</Col>
+                        <Col span={8}>
+                            <Aside></Aside>
+                        </Col>
                     </Row>
                 </div>
                 <Footer />

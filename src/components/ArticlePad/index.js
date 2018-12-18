@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 class ArticlePad extends Component {
+    static propTypes = {
+        article: PropTypes.object,
+    }
+
     render() {
         const link = 'https://via.placeholder.com/610X300';
         const backendStyle = {
@@ -22,15 +26,11 @@ class ArticlePad extends Component {
                     {article.summary}
                 </section>
                 <div className="c-pad__reading">
-                    <Link to="/article">read more</Link>
+                    <Link to={`/article/${article.id}`}>read more</Link>
                 </div>
             </div>
         );
     }
-}
-
-ArticlePad.propTypes = {
-    article: PropTypes.object,
 }
 
 export default ArticlePad;

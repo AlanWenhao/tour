@@ -6,9 +6,10 @@ class ArticleDetail extends Component {
     // }
 
     render() {
+        const { detail } = this.props;
         return (
             <div className="c-article-detail">
-                <div>这里是文章详情</div>
+                <div dangerouslySetInnerHTML={{ __html: detail.content }}></div>
                 <dir className="c-article-detail__action">
 
                 </dir>
