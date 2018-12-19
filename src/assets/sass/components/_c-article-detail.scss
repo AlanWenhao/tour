@@ -1,7 +1,45 @@
 .c-article-detail {
-    padding: 10px;
+    padding: 20px;
     background: $white;
     img {
         max-width: 100%;
+    }
+    &__title {
+        font-size: 26px;
+    }
+    &__info {
+        margin: 6px 0;
+        span {
+            padding-right: 16px;
+        }
+    }
+    &__action {
+        margin-top: 30px;
+        text-align: center;
+    }
+    &__action-thumb {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
+        box-shadow: 4px 4px 10px 0 rgba(0,0,0,.4);
+        font-size: 30px;
+        color: $white;
+        line-height: 46px;
+        text-align: center;
+        background: $main_theme;
+        transition: all ease-in-out .1s;
+        &:hover {
+            box-shadow: 2px 2px 5px 0 rgba(0,0,0,.4);
+        }
+        &:active {
+            box-shadow: 0px 0px 0px 0 rgba(0,0,0,.4);
+            opacity: .7;
+        }
+    }
+    &__action-num {
+        margin-top: 10px;
+        font-size: 20px;
+        color: $main_theme;
     }
 }

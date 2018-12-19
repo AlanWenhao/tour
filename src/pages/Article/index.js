@@ -7,9 +7,11 @@ import actions from '@/store/actions/user';
 import Banner from '@/components/Banner';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
-import ArticleDetail from './ArticleDetail';
 import request from '@/api/request';
 import apiConfig from '@/api/apiConfig';
+import Aside from '@/components/Aside';
+import ArticleDetail from './ArticleDetail';
+
 
 class Article extends Component {
     static propTypes = {
@@ -43,7 +45,9 @@ class Article extends Component {
                         <Col span={16}>
                             <ArticleDetail detail={this.state.article}></ArticleDetail>
                         </Col>
-                        <Col span={8}>col-4</Col>
+                        <Col span={8}>
+                            <Aside></Aside>
+                        </Col>
                     </Row>
                 </div>
                 <Footer />
