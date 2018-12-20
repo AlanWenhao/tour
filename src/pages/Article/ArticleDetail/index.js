@@ -18,7 +18,7 @@ class ArticleDetail extends Component {
     }
 
     static getDerivedStateFromProps = (props, state) => {
-        if (props.detail.thumb && state.thumbNum === null) {
+        if (props.detail.thumb && !state.thumbNum) {
             console.log('执行一次');
             const data = {
                 id: props.detail.id,
@@ -32,7 +32,7 @@ class ArticleDetail extends Component {
             });
         }
         return {
-            thumbNum: props.detail.thumb,
+            thumbNum: state.thumbNum,
         };
     }
 
