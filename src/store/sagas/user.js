@@ -1,6 +1,6 @@
 import { takeEvery, put, call } from 'redux-saga/effects';
 import { push } from 'react-router-redux';
-import Toast from '@/components/toast';
+import Toast from '@/components/Toast';
 import request from '@/api/request';
 import apiConfig from '@/api/apiConfig';
 import { decode } from '@/utils/jwt';

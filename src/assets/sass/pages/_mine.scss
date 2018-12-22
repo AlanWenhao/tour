@@ -50,4 +50,43 @@
     &__editor-title {
         padding-left: 4px;
     }
+
+    // 管理类别部分
+    &__cate-item {
+        box-sizing: border-box;
+        width: 50%;
+        float: left;
+        padding: 5px;
+    }
+    &__cate-inner {
+        margin: 5px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px 0 rgba(0,0,0,.1);
+        overflow: hidden;
+        text-align: center;
+    }
+    &__cate-blur {
+        background: rgba(123, 87, 75, 0.55);
+    }
+    &__cate-title {
+        height: 40px;
+        font-size: 20px;
+        line-height: 40px;
+        color: $white;
+    }
+    &__cate-action {
+        display: flex;
+        justify-content: space-around;
+        padding: 10px 20px;
+        color: $white;
+        user-select: none;
+        span {
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: color .3s ease-in-out;
+            &:hover {
+                color: $light_gray;
+            }
+        }
+    }
 }

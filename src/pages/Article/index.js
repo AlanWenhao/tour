@@ -7,6 +7,7 @@ import actions from '@/store/actions/user';
 import Banner from '@/components/Banner';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
+import Toast from '@/components/Toast';
 import request from '@/api/request';
 import apiConfig from '@/api/apiConfig';
 import Aside from '@/components/Aside';
@@ -32,6 +33,27 @@ class Article extends Component {
             this.setState({
                 article: res.data.data,
             });
+        }).then(() => {
+            request(apiConfig.plusViewTime, 'post', { id: this.props.match.params.id }).then(() => {
+                this.setState({
+                    article: { ...this.state.article, pv: Number(this.state.article.pv) + 1 },
+                });
+            });
+        });
+    }
+
+    plusThumb = (plusedNum) => {
+        const data = {
+            id: this.props.match.params.id,
+        };
+        request(apiConfig.thumb, 'post', data).then((res) => {
+            if (res.data.code === 200) {
+                this.setState({
+                    article: { ...this.state.article, thumb: plusedNum },
+                });
+            } else {
+                Toast.warning(res.data.data);
+            }
         });
     }
 
@@ -43,7 +65,7 @@ class Article extends Component {
                 <div className="container t-article-detail">
                     <Row gutter={16}>
                         <Col span={16}>
-                            <ArticleDetail detail={this.state.article}></ArticleDetail>
+                            <ArticleDetail detail={this.state.article} plusThumb = {this.plusThumb}></ArticleDetail>
                         </Col>
                         <Col span={8}>
                             <Aside></Aside>

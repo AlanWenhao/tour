@@ -7,4 +7,10 @@ export default {
     queryAllArticle(payload) {
         return { type: types.QUERY_ALL_ARTICLE, payload };
     },
+    queryCurrentArticle(payload) {
+        return { type: types.QUERY_CURRENT_ARTICLE, payload };
+    },
+    plusThumb(payload) {
+        return { type: types.PLUS_THUMB, payload };
+    },
 };

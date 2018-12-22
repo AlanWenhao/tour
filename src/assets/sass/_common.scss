@@ -2,7 +2,14 @@ body {
     background: $white;
     background: url('../img/body-bg.png');
 }
-
+.clearfix:after {
+    content: '';
+    display: block;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    clear: both;
+}
 .full {
     min-height: 100vh;
 }

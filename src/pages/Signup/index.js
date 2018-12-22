@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import actions from '@/store/actions/user';
+import Toast from '@/components/Toast';
 
 const FormItem = Form.Item;
 
@@ -14,6 +15,10 @@ class NormalLoginForm extends Component {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
+                if (values.password !== values.safePassword) {
+                    Toast.error('请确保两次输入的密码一致');
+                    return;
+                }
                 console.log('Received values of form: ', values);
                 this.props.signup(values);
             }
@@ -30,13 +35,20 @@ class NormalLoginForm extends Component {
                         <Form onSubmit={this.handleSubmit} className="login-form">
                             <FormItem>
                                 {getFieldDecorator('username', { rules: [{ required: true, message: '请输入用户名' }] })(
-                                    <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />,
+                                    <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="用户名" />,
                                 )}
                             </FormItem>
                             <FormItem>
-                                {getFieldDecorator('password', { rules: [{ required: true, message: 'Please input your Password!' }] })(
+                                {getFieldDecorator('password', { rules: [{ required: true, message: '请输入密码' }] })(
                                     <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                        type="password" placeholder="Password"
+                                        type="password" placeholder="密码"
+                                    />,
+                                )}
+                            </FormItem>
+                            <FormItem>
+                                {getFieldDecorator('safePassword', { rules: [{ required: true, message: '请再次输入密码' }] })(
+                                    <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                        type="password" placeholder="重复输入密码"
                                     />,
                                 )}
                             </FormItem>
