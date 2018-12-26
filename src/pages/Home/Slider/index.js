@@ -20,7 +20,7 @@ class Responsive extends Component {
         const settings = {
             dots: false,
             infinite: true,
-            // autoplay: true,
+            autoplay: true,
             autoplaySpeed: 4500,
             speed: 300,
             slidesToShow: 3,

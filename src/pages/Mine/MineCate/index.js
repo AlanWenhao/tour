@@ -106,7 +106,7 @@ class MineCate extends Component {
                     Toast.success('添加成功');
                     this.fetchList();
                 } else {
-                    Toast.error('出错了');
+                    Toast.error(res.data.data);
                 }
             });
         }
