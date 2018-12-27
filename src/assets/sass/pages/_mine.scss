@@ -50,6 +50,15 @@
     &__editor-title {
         padding-left: 4px;
     }
+    &__poster-img {
+        margin-top: 10px;
+        border-radius: 6px;
+        box-shadow: 0 0 10px 2px rgba(0,0,0,.2);
+        overflow: hidden;
+    }
+    &__poster-img {
+        width: 100%;
+    }
 
     // 管理类别部分
     &__cate-item {

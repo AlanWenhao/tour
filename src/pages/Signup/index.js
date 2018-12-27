@@ -19,15 +19,11 @@ function getBase64(img, callback) {
 }
 
 function beforeUpload(file) {
-    const isJPG = file.type === 'image/jpeg';
-    if (!isJPG) {
-        message.error('You can only upload JPG file!');
+    const isLt1M = file.size / 1024 / 1024 < 1;
+    if (!isLt1M) {
+        message.error('上传的头像不能大于1M');
     }
-    const isLt2M = file.size / 1024 / 1024 < 2;
-    if (!isLt2M) {
-        message.error('Image must smaller than 2MB!');
-    }
-    return isJPG && isLt2M;
+    return isLt1M;
 }
 
 class NormalLoginForm extends Component {
@@ -35,6 +31,7 @@ class NormalLoginForm extends Component {
         super(props);
         this.state = {
             loading: false,
+            resUrl: '',
         };
     }
 
@@ -61,6 +58,10 @@ class NormalLoginForm extends Component {
 
         request(apiConfig.upload, 'post', formData).then((res) => {
             console.log(res.data.data.url);
+            this.setState({
+                imageUrl: res.data.data.url,
+                loading: false,
+            });
         });
     }
 
@@ -73,7 +74,12 @@ class NormalLoginForm extends Component {
                     return;
                 }
                 console.log('Received values of form: ', values);
-                this.props.signup(values);
+                const data = {
+                    ...values,
+                    avatar: this.state.imageUrl ? this.state.imageUrl : '',
+                };
+                console.log(data);
+                this.props.signup(data);
             }
         });
     }
@@ -92,7 +98,7 @@ class NormalLoginForm extends Component {
                 <div className="t-sign__bg"></div>
                 <div className="t-sign__container">
                     <div className="t-sign__content">
-                        <Upload name="avatar" listType="picture-card" className="avatar-uploader" showUploadList={false}
+                        <Upload name="avatar" listType="picture-card" className="t-sign__upload" showUploadList={false}
                             beforeUpload={beforeUpload} onChange={this.uploadChange}
                             customRequest={this.uploadHandler}
                         >

@@ -28,6 +28,21 @@
     &__question {
         color: #fff;
     }
+
+    &__upload {
+        display: flex;
+        justify-content: center;
+        .ant-upload.ant-upload-select-picture-card {
+            border-radius: 50%;
+            overflow: hidden;
+            .ant-upload {
+                padding: 0;
+            }
+            img {
+                width: 100%;
+            }
+        }
+    }
 }
 
 @keyframes waving {
