@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
+import { Link } from 'react-router-dom';
 
 class Responsive extends Component {
     constructor(props) {
@@ -17,10 +18,11 @@ class Responsive extends Component {
     }
 
     render() {
+        const { list } = this.props;
         const settings = {
             dots: false,
             infinite: true,
-            autoplay: true,
+            // autoplay: true,
             autoplaySpeed: 4500,
             speed: 300,
             slidesToShow: 3,
@@ -38,14 +40,15 @@ class Responsive extends Component {
                     settings: { slidesToShow: 1 },
                 }],
         };
+        console.log('接受到的列表', this.props.list);
         return (
             <div className="t-home__slider">
                 <Slider ref={(c) => { this.slider = c; }} {...settings}>
-                    {[1, 2, 3, 4, 5, 6].map(item => (
+                    {list.map(item => (
                         <div className="t-home__slider-item" key={item}>
-                            <a className="t-home__slider-box" href="/">
-                                <img className="t-home__slider-img" src="https://via.placeholder.com/400X300" alt=""/>
-                            </a>
+                            <Link className="t-home__slider-box" to={`/article/${item.id}`}>
+                                <img className="t-home__slider-img" src={item.poster} alt=""/>
+                            </Link>
                             <section className="t-home__slider-info">
                                 <span className="t-home__slider-category">文章类别</span>
                                 <h3 className="t-home__slider-title"><a href="/">ARTICLE TITLE</a></h3>
@@ -53,16 +56,6 @@ class Responsive extends Component {
                             </section>
                         </div>
                     ))}
-                    <div className="t-home__slider-item">
-                        <a className="t-home__slider-box" href="/">
-                            <img className="t-home__slider-img" src="https://via.placeholder.com/500X300" alt=""/>
-                        </a>
-                        <section className="t-home__slider-info">
-                            <span className="t-home__slider-category">文章类别</span>
-                            <h3 className="t-home__slider-title"><a href="/">ARTICLE TITLE</a></h3>
-                            <div className="t-home__slider-date">2018-10-31</div>
-                        </section>
-                    </div>
                 </Slider>
                 <div className="t-home__slider-prev" onClick={this.previous}></div>
                 <div className="t-home__slider-next" onClick={this.next}></div>

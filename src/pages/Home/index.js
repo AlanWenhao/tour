@@ -9,6 +9,8 @@ import Footer from '@/components/Footer';
 import Aside from '@/components/Aside';
 import Slider from './Slider';
 import articleAction from '@/store/actions/article';
+import request from '@/api/request';
+import apiConfig from '@/api/apiConfig';
 
 const actions = {
     ...articleAction,
@@ -20,8 +22,17 @@ class Home extends Component {
         this.state = {
             currentOffset: 0,
             pageNum: 5,
+            hotArticleList: [],
         };
         this.props.queryAllArticle({ limit: this.state.pageNum, offset: this.state.currentOffset });
+    }
+
+    componentDidMount() {
+        request(apiConfig.queryHotArticles, 'post', {}).then((res) => {
+            this.setState({
+                hotArticleList: res.data.data,
+            });
+        });
     }
 
     render() {
@@ -30,7 +41,7 @@ class Home extends Component {
             <div className="t-home">
                 <Banner />
                 <Nav />
-                <Slider></Slider>
+                <Slider list={this.state.hotArticleList}></Slider>
                 <div className="container">
                     <Row gutter={16}>
                         <Col span={16}>

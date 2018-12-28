@@ -6,6 +6,7 @@ export default {
     addArticle: '/addArticle',
     queryAllArticle: '/queryArticles',
     queryArticleById: '/queryArticleById',
+    queryHotArticles: '/queryHotArticles',
     plusViewTime: '/plusViewTime',
     thumb: '/thumb',
     // 类目
