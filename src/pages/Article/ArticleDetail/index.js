@@ -36,7 +36,7 @@ class ArticleDetail extends Component {
                 <div dangerouslySetInnerHTML={{ __html: detail.content }}></div>
                 <div className="c-article-detail__action">
                     <div className="c-article-detail__action-thumb" onClick={this.successPlusThumb}>
-                        <Icon type="like" />
+                        <Icon type="fire" />
                     </div>
                     <div className="c-article-detail__action-num"><span>{detail.thumb}</span></div>
                 </div>
