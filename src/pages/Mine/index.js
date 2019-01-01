@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Row, Col } from 'antd';
 import PropTypes from 'prop-types';
 
+import Footer from '@/components/Footer';
 import MineArticles from './MineArticles';
 import MineInfo from './MineInfo';
 import MineCate from './MineCate';
@@ -20,13 +21,13 @@ class Mine extends Component {
                     <div className="t-mine__avatar">
                         <img src={user.avatar} alt=""/>
                     </div>
-                    <h4 className="t-mine__username">{user.username}</h4>
                 </div>
                 <ul className="t-mine__tabs">
+                    <li><Link className="t-mine__tab" to="/">网站首页</Link></li>
                     <li><Link className="t-mine__tab" to="/mine">我的文章</Link></li>
                     <li><Link className="t-mine__tab" to="/mine/info">个人信息</Link></li>
-                    <li><Link className="t-mine__tab" to="/mine/cate">分类管理</Link></li>
-                    <li><Link className="t-mine__tab" to="/mine/user">用户管理</Link></li>
+                    {user.isAdmin === '1' && <li><Link className="t-mine__tab" to="/mine/cate">分类管理</Link></li>}
+                    {user.isAdmin === '1' && <li><Link className="t-mine__tab" to="/mine/user">用户管理</Link></li>}
                 </ul>
                 <div className="container">
                     <Row gutter={16}>
@@ -42,13 +43,11 @@ class Mine extends Component {
                             </div>
                         </Col>
                         <Col span={8}>
-                            <div className="t-mine__right">
-                                <Aside></Aside>
-                            </div>
+                            <Aside></Aside>
                         </Col>
                     </Row>
                 </div>
-                {/* <MineEditor></MineEditor> */}
+                <Footer></Footer>
             </div>
         );
     }

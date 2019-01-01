@@ -2,6 +2,9 @@ body {
     background: $white;
     background: url('../img/body-bg.png');
 }
+ul, li {
+    list-style: none;
+}
 .clearfix:after {
     content: '';
     display: block;

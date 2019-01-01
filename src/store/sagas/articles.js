@@ -21,7 +21,8 @@ function* queryAllArticle(action) {
     const { payload } = action;
     try {
         const res = yield request(apiConfig.queryAllArticle, 'post', payload);
-        yield put({ type: types.QUERY_ALL_ARTICLE_SECCESS, data: res.data.data.list });
+        console.log('获取到的文章', res.data.data);
+        yield put({ type: types.QUERY_ALL_ARTICLE_SECCESS, data: res.data.data });
     } catch (err) {
         console.log(err);
     }

@@ -7,6 +7,7 @@ export default {
     queryAllArticle: '/queryArticles',
     queryArticleById: '/queryArticleById',
     queryHotArticles: '/queryHotArticles',
+    deleteArticle: '/deleteArticle',
     plusViewTime: '/plusViewTime',
     thumb: '/thumb',
     // 类目

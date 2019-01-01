@@ -50,9 +50,9 @@ class Responsive extends Component {
                                 <img className="t-home__slider-img" src={item.poster} alt=""/>
                             </Link>
                             <section className="t-home__slider-info">
-                                <span className="t-home__slider-category">文章类别</span>
-                                <h3 className="t-home__slider-title"><a href="/">ARTICLE TITLE</a></h3>
-                                <div className="t-home__slider-date">2018-10-31</div>
+                                <span className="t-home__slider-category">{item.category_name}</span>
+                                <h3 className="t-home__slider-title"><a href={`article/${item.id}`}>{item.title}</a></h3>
+                                <div className="t-home__slider-date">{item.moment}</div>
                             </section>
                         </div>
                     ))}

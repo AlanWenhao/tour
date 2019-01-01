@@ -2,10 +2,11 @@
     /* slider 部分 */
     &__slider {
         position: relative;
-        padding-top: 20px;
+        margin-top: 20px;
+        padding-top: 10px;
         width: 100%;
         overflow: hidden;
-        // background: $white;
+        background: $white;
         .slick-next {
             display: none;
         }
@@ -113,6 +114,12 @@
         font-size: 13px;
     }
     /* slider 部分 */
+
+    /* pagination 部分 */
+    &__pagi {
+        margin-bottom: 20px;
+        text-align: center;
+    }
 }
 
 /* 自定义媒体查询部分 */

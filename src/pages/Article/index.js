@@ -23,12 +23,17 @@ class Article extends Component {
         super(props);
         this.state = {
             article: {},
+            id: this.props.match.params.id,
         };
     }
 
     componentDidMount() {
         console.log(this.props);
         const currentId = this.props.match.params.id;
+        this.requestArticle(currentId);
+    }
+
+    requestArticle = (currentId) => {
         request(apiConfig.queryArticleById, 'post', { id: currentId }).then((res) => {
             this.setState({
                 article: res.data.data,
@@ -40,6 +45,13 @@ class Article extends Component {
                 });
             });
         });
+    }
+
+    componentDidUpdate(nextProps) {
+        if (nextProps.match.params.id !== this.props.match.params.id) {
+            const currentId = nextProps.match.params.id;
+            this.requestArticle(currentId);
+        }
     }
 
     plusThumb = (plusedNum) => {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Row, Col } from 'antd';
+import { Row, Col, Pagination } from 'antd';
 import PropTypes from 'prop-types';
 import Banner from '@/components/Banner';
 import Nav from '@/components/Nav';
@@ -21,7 +21,9 @@ class Home extends Component {
         super(props);
         this.state = {
             currentOffset: 0,
-            pageNum: 5,
+            pageNum: 4,
+            total: 0,
+            current: 1,
             hotArticleList: [],
         };
         this.props.queryAllArticle({ limit: this.state.pageNum, offset: this.state.currentOffset });
@@ -35,19 +37,35 @@ class Home extends Component {
         });
     }
 
+    changePageNum = (page, pageSize) => {
+        console.log(page, pageSize);
+        this.setState({
+            currentOffset: pageSize * (page - 1),
+            current: page,
+        }, () => {
+            this.props.queryAllArticle({ limit: this.state.pageNum, offset: this.state.currentOffset });
+        });
+    }
+
     render() {
-        const { articleList } = this.props;
+        const { articleList, total } = this.props;
         return (
             <div className="t-home">
                 <Banner />
                 <Nav />
                 <Slider list={this.state.hotArticleList}></Slider>
-                <div className="container">
+                <div className="container" style={{ marginTop: '20px' }}>
                     <Row gutter={16}>
                         <Col span={16}>
                             {articleList.map(article => (
                                 <ArticlePad article={article} key={article.id} />
                             ))}
+                            <div className="t-home__pagi">
+                                <Pagination pageSize={this.state.pageNum} total={total}
+                                    current={this.state.current}
+                                    onChange={this.changePageNum}
+                                />
+                            </div>
                         </Col>
                         <Col span={8}>
                             <Aside></Aside>
@@ -63,6 +81,7 @@ class Home extends Component {
 Home.propTypes = {
     queryAllArticle: PropTypes.func,
     articleList: PropTypes.array,
+    total: PropTypes.number,
 };
 
 export default connect(
