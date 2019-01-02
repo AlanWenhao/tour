@@ -1,0 +1,39 @@
+.c-comment {
+    padding-top: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+    background: $white;
+    &__item {
+        display: flex;
+        border-bottom: 1px solid $light_gray;
+    }
+    &__avatar {
+        width: 45px;
+        height: 45px;
+        margin-right: 15px;
+        background: lightblue;
+        img {
+            width: 100%;
+            border-radius: 50%;
+        }
+    }
+    &__main {
+        flex: 1;
+        h4 {
+            margin-bottom: 5px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        p {
+            margin-bottom: 10px;
+            color: $black;
+        }
+    }
+    &__action {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 15px;
+        span {color: $mid_gray}
+    }
+}

@@ -16,6 +16,10 @@ export default {
     editCategory: '/editCategory',
     deleteCategory: '/deleteCategory',
 
+    // 评论
+    getComments: '/getComments',
+    addComment: '/addComment',
+
     // 文件上传
     upload: '/upload',
 };

@@ -1,0 +1,25 @@
+.c-reply {
+    background: $white;
+    padding: 10px 20px;
+    display: flex;
+    &__avatar {
+        width: 65px;
+        padding: 10px;
+        background: #f9f9f9;
+        img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+    }
+    &__input {
+        flex: 1;
+        padding: 10px;
+        background: #f9f9f9;
+    }
+    &__confirm {
+        margin-top: 10px;
+        text-align: right;
+    }
+}

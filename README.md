@@ -41,6 +41,11 @@ $ npm run dev
 - use src img in jsx, you should import img as a module then webpack url loader can rerolve it. Do not use relative path because there is no `html-withimg-loader` in jsx. Jsx is a module rather than `html` file
 - if you want to call side effects while a components props changing. It's better to use `componentDidupdate` rather than `componentWillRecieveProps`.[here is the reson](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#side-effects-on-props-change) and this blog remind us to cancel http request when unmounted the component.
 
+## to figure out
+- why react docs says that `willRecieveProps` may cause multiple update ?
+- why component `Article` update(render) three times ?
+- ref
+
 ## Backlog
 - get method to fetch article detail
 
