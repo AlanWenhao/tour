@@ -34,22 +34,31 @@ class Article extends Component {
     }
 
     requestArticle = (currentId) => {
-        request(apiConfig.queryArticleById, 'post', { id: currentId }).then((res) => {
+        this._asyncRequest = request(apiConfig.queryArticleById, 'post', { id: currentId }).then((res) => {
             this.setState({
                 article: res.data.data,
             });
         }).then(() => {
             request(apiConfig.plusViewTime, 'post', { id: this.props.match.params.id }).then(() => {
+                this._asyncRequest = null;
                 this.setState({
                     article: { ...this.state.article, pv: Number(this.state.article.pv) + 1 },
                 });
             });
         });
+            
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps.match.params.id !== this.props.match.params.id) {
             this.requestArticle(this.props.match.params.id);
+        }
+    }
+
+    // see https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#fetching-external-data-when-props-change
+    componentWillUnmount() {
+        if (this._asyncRequest) {
+            this._asyncRequest.cancel();
         }
     }
 

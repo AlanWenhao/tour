@@ -38,7 +38,8 @@ $ npm run dev
 ## Remind
 - to set `historyApiFallback` is a way to avoid `Cannot GET/**` after refresh browser
 - user `withRouter` because when you have an export connect, you need to tell that that component will be using the router.
-- use src img in jsx, you should import img as a module then webpack url loader can rerolve it.Do not use relative path because there is no `html-withimg-loader` in jsx. Jsx is a module rather than `html` file
+- use src img in jsx, you should import img as a module then webpack url loader can rerolve it. Do not use relative path because there is no `html-withimg-loader` in jsx. Jsx is a module rather than `html` file
+- if you want to call side effects while a components props changing. It's better to use `componentDidupdate` rather than `componentWillRecieveProps`.[here is the reson](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#side-effects-on-props-change) and this blog remind us to cancel http request when unmounted the component.
 
 ## Backlog
 - get method to fetch article detail
