@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { Row, Col } from 'antd';
 
 import actions from '@/store/actions/user';
@@ -28,7 +29,6 @@ class Article extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props);
         const currentId = this.props.match.params.id;
         this.requestArticle(currentId);
     }
@@ -47,10 +47,10 @@ class Article extends Component {
         });
     }
 
-    componentDidUpdate(nextProps) {
-        if (nextProps.match.params.id !== this.props.match.params.id) {
-            const currentId = nextProps.match.params.id;
-            this.requestArticle(currentId);
+    componentWillReceiveProps() {
+        console.log('生命周期中的props', this.props);
+        if (this.props.history.location.pathname !== this.props.location.pathname) {
+            this.requestArticle(this.props.history.location.pathname.match(/[0-9]$/)[0]);
         }
     }
 
@@ -70,6 +70,7 @@ class Article extends Component {
     }
 
     render() {
+        console.log('当前的props', this.props);
         return (
             <div>
                 <Banner />

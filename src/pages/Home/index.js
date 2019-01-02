@@ -53,7 +53,7 @@ class Home extends Component {
             <div className="t-home">
                 <Banner />
                 <Nav />
-                <Slider list={this.state.hotArticleList}></Slider>
+                {this.state.hotArticleList.length > 2 && <Slider list={this.state.hotArticleList}></Slider>}
                 <div className="container" style={{ marginTop: '20px' }}>
                     <Row gutter={16}>
                         <Col span={16}>
