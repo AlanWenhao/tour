@@ -47,10 +47,9 @@ class Article extends Component {
         });
     }
 
-    componentWillReceiveProps() {
-        console.log('生命周期中的props', this.props);
-        if (this.props.history.location.pathname !== this.props.location.pathname) {
-            this.requestArticle(this.props.history.location.pathname.match(/[0-9]$/)[0]);
+    componentDidUpdate(prevProps) {
+        if (prevProps.match.params.id !== this.props.match.params.id) {
+            this.requestArticle(this.props.match.params.id);
         }
     }
 
