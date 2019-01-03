@@ -24,6 +24,15 @@
         li {
             display: inline-block;
         }
+        &-box {
+            position: relative;
+        }
+        .c-nav__title {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
     }
     &__tab {
         display: inline-block;
@@ -65,6 +74,12 @@
     &__article-title {
         font-size: 16px;
         font-weight: bold;
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
     }
     &__article-btn {
         margin: 0 10px;

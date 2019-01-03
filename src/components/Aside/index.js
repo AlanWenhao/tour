@@ -33,7 +33,7 @@ class Aside extends Component {
                     </p>
                 </div>
                 <div className="c-aside__recommend">
-                    <h3>浏览最多</h3>
+                    <h3>热度最高</h3>
                     <ul>
                         {this.state.hotArticleList.map(item => (
                             <li key={item.id}>

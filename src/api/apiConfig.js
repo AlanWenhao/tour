@@ -20,6 +20,10 @@ export default {
     getComments: '/getComments',
     addComment: '/addComment',
 
+    // 用户
+    getUserList: 'getUserList',
+    changeAdmin: 'changeAdmin',
+
     // 文件上传
     upload: '/upload',
 };

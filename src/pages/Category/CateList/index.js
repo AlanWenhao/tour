@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 class CateList extends Component {
     static propTypes = {
@@ -11,10 +12,10 @@ class CateList extends Component {
         return (
             <div className="t-cate__main clearfix">
                 {list.map(item => (
-                    <section className="t-cate__item" key={item.id}>
+                    <Link to={`/list/${item.id}`} className="t-cate__item" key={item.id}>
                         <div className="t-cate__inner" style={{ background: `url(${item.picture})no-repeat center center / cover` }}></div>
                         <p className="t-cate__text">{item.name}</p>
-                    </section>
+                    </Link>
                 ))}
             </div>
         );

@@ -10,7 +10,7 @@ class Nav extends Component {
         return (
             <div className="c-nav">
                 <div className="c-nav__main">
-                    <Link to="/" className="c-nav__title"><strong>tour</strong> <span>poster</span></Link>
+                    <Link to="/" className="c-nav__title"><strong>Tour</strong> <span>poster</span></Link>
                     <div>
                         <Link className="c-nav__link" to="/">首页</Link>
                         <Link className="c-nav__link" to="/category">类目</Link>

@@ -96,9 +96,10 @@ class Article extends Component {
         request(apiConfig.addComment, 'post', data).then((res) => {
             if (res.data.code === 200) {
                 this.child.clearInput();
+                Toast.success('评论成功');
                 this.requestComments(data.articleId);
             } else {
-                Toast.error(res.data.data);
+                Toast.warning(res.data.data);
             }
         });
     }
@@ -112,7 +113,7 @@ class Article extends Component {
                     <Row gutter={16}>
                         <Col span={16} className="t-article__left">
                             <ArticleDetail detail={this.state.article} plusThumb = {this.plusThumb}></ArticleDetail>
-                            <Reply ref={(ref) => { this.child = ref; }} avatar={this.props.user.avatar} articleId={this.props.match.params.id}
+                            <Reply ref={(ref) => { this.child = ref; }} avatar={this.props.user ? this.props.user.avatar : ''} articleId={this.props.match.params.id}
                                 confirmInput={this.confirmInput}></Reply>
                             <CommentList list={this.state.commentList}></CommentList>
                         </Col>

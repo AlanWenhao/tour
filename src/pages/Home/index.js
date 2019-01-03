@@ -7,6 +7,7 @@ import Nav from '@/components/Nav';
 import ArticlePad from '@/components/ArticlePad';
 import Footer from '@/components/Footer';
 import Aside from '@/components/Aside';
+import GoTop from '@/components/GoTop';
 import Slider from './Slider';
 import articleAction from '@/store/actions/article';
 import request from '@/api/request';
@@ -72,6 +73,7 @@ class Home extends Component {
                         </Col>
                     </Row>
                 </div>
+                <GoTop></GoTop>
                 <Footer />
             </div>
         );

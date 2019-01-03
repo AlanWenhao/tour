@@ -23,11 +23,13 @@ class Mine extends Component {
                     </div>
                 </div>
                 <ul className="t-mine__tabs">
-                    <li><Link className="t-mine__tab" to="/">网站首页</Link></li>
-                    <li><Link className="t-mine__tab" to="/mine">我的文章</Link></li>
-                    <li><Link className="t-mine__tab" to="/mine/info">个人信息</Link></li>
-                    {user.isAdmin === '1' && <li><Link className="t-mine__tab" to="/mine/cate">分类管理</Link></li>}
-                    {user.isAdmin === '1' && <li><Link className="t-mine__tab" to="/mine/user">用户管理</Link></li>}
+                    <div className="container t-mine__tabs-box">
+                        <Link to="/" className="c-nav__title"><strong>Tour</strong> <span>poster</span></Link>
+                        <li><Link className="t-mine__tab" to="/mine">我的文章</Link></li>
+                        <li><Link className="t-mine__tab" to="/mine/info">个人信息</Link></li>
+                        {user.isAdmin === '1' && <li><Link className="t-mine__tab" to="/mine/cate">分类管理</Link></li>}
+                        {user.isAdmin === '1' && <li><Link className="t-mine__tab" to="/mine/user">用户管理</Link></li>}
+                    </div>
                 </ul>
                 <div className="container">
                     <Row gutter={16}>

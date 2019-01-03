@@ -7,9 +7,11 @@ import Home from './Home';
 import Article from './Article';
 import Category from './Category';
 import Contact from './Contact';
+import List from './List';
 import Signup from './Signup';
 import Signin from './Signin';
 import Mine from './Mine';
+import GoTop from '@/components/GoTop';
 
 class App extends Component {
     constructor(props) {
@@ -24,10 +26,12 @@ class App extends Component {
                 <Route exact path="/category" component={Category}/>
                 <Route exact path="/article/:id" component={Article}/>
                 <Route exact path="/contact" component={Contact}/>
+                <Route exact path="/list/:id" component={List}/>
                 <Route exact path="/signup" component={Signup}/>
                 <Route exact path="/signin" component={Signin}/>
                 <Route path="/mine" component={Mine}/>
                 {/* <Redirect to="/" component={Home} /> */}
+                <GoTop></GoTop>
             </Fragment>
         );
     }
